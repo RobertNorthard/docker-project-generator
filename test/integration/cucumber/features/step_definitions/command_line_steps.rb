@@ -4,5 +4,5 @@ When(/^I run the "([^"]*)" program$/) do |project|
 end
 
 Then(/^I should see that I am using docker\-project version "([^"]*)"$/) do |version|
-  expect(@value) .to eq version
+  expect(@value.delete!("\n")) .to eq version
 end
