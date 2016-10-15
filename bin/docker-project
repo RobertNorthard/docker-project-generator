@@ -11,7 +11,7 @@ options = {}
 optparse = OptionParser.new do |opts|
   opts.banner = "Usage: docker-project [options]"
 
-  opts.on('-i', '--init', 'Initialise docker project.') { |v| options[:version] = true }
+  opts.on('-i', '--init', 'Initialise docker project.') { |v| options[:init] = true }
   opts.on('-v', '--version', 'Version') { |v| options[:version] = true }
   opts.on('-h', '--help', 'Usage instructions.') { |v| options[:help] = true }
 
@@ -25,3 +25,8 @@ optparse = OptionParser.new do |opts|
     exit 0
   end
 end.parse!
+
+if options[:init]
+  puts 'Initialising Git in current working directory.'
+  DockerProject::DockerProject.new.project_init
+end
