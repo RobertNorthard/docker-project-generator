@@ -3,20 +3,25 @@
 require 'docker-project'
 require 'optparse'
 
+if ARGV.empty?
+  ARGV << '--help'
+end 
+
 options = {}
-OptionParser.new do |opts|
+optparse = OptionParser.new do |opts|
   opts.banner = "Usage: docker-project [options]"
 
+  opts.on('-i', '--init', 'Initialise docker project.') { |v| options[:version] = true }
   opts.on('-v', '--version', 'Version') { |v| options[:version] = true }
+  opts.on('-h', '--help', 'Usage instructions.') { |v| options[:help] = true }
+
+  opts.on('-v', '--version', 'Version') do
+  	puts DockerProject::VERSION
+  	exit 0
+  end
+
+  opts.on("-h", "--help", "Usage Instructions") do
+    puts opts
+    exit 0
+  end
 end.parse!
-
-if options.length == 0
-  puts  'Usage: docker-project [options]'
-
-  puts  "\t-v, --version docker-project version"
-  puts
-end
-
-if options[:version] 
-  print DockerProject::VERSION
-end
