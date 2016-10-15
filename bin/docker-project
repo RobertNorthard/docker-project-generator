@@ -1,0 +1,22 @@
+#!/usr/bin/env ruby
+
+require 'docker-project'
+require 'optparse'
+
+options = {}
+OptionParser.new do |opts|
+  opts.banner = "Usage: docker-project [options]"
+
+  opts.on('-v', '--version', 'Version') { |v| options[:version] = true }
+end.parse!
+
+if options.length == 0
+  puts  'Usage: docker-project [options]'
+
+  puts  "\t-v, --version docker-project version"
+  puts
+end
+
+if options[:version] 
+  print DockerProject::VERSION
+end
