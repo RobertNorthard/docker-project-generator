@@ -27,6 +27,6 @@ optparse = OptionParser.new do |opts|
 end.parse!
 
 if options[:init]
-  puts 'Initialising Git in current working directory.'
+  puts 'Initialising current working directory.'
   DockerProject::DockerProject.new.project_init
 end
