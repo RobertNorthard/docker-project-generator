@@ -4,19 +4,18 @@ A rubygem to generate a docker project.
 
 ## Install
 
-`
-$ gem build docker-project.gemspec
-$ gem install docker-project*.gem
-`
+		$ gem build docker-project.gemspec
+		$ gem install docker-project*.gem
+
 
 ## Usage
 
-`
-Usage: docker-project [options]
-    -i, --init                       Initialise docker project.
-    -v, --version                    Version
-    -h, --help                       Usage Instructions
-`
+
+		Usage: docker-project [options]
+    		-i, --init                       Initialise docker project.
+    		-v, --version                    Version
+    		-h, --help                       Usage Instructions
+
 
 ## Testing
 
